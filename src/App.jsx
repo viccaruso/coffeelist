@@ -1,6 +1,7 @@
 import { Switch, Route, Redirect } from 'react-router-dom';
 import CoffeeList from './components/Coffee/CoffeeList';
 import CoffeeDetails from './components/Coffee/CoffeeDetails';
+import Auth from './views/Auth/Auth';
 
 export default function App() {
   return (
@@ -10,6 +11,9 @@ export default function App() {
       </Route>
       <Route path="/coffee/:id">
         <CoffeeDetails />
+      </Route>
+      <Route path="/login">
+        <Auth />
       </Route>
       <Route exact path="/">
         <Redirect to="/list" />
