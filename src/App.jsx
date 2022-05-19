@@ -3,14 +3,15 @@ import CoffeeList from './components/Coffee/CoffeeList';
 import CoffeeDetails from './components/Coffee/CoffeeDetails';
 import Auth from './views/Auth/Auth';
 import { UserProvider } from './context/UserContext';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 export default function App() {
   return (
     <UserProvider>
       <Switch>
-        <Route path="/list">
+        <PrivateRoute path="/list">
           <CoffeeList />
-        </Route>
+        </PrivateRoute>
         <Route path="/coffee/:id">
           <CoffeeDetails />
         </Route>
