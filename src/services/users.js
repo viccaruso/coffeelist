@@ -5,11 +5,7 @@ export function getUser() {
 }
 
 export async function supabaseSignIn(email, password) {
-  console.log('supabaseSignIn');
-  console.log('email', email);
-  console.log('password', password);
-  const obj = await supabase.auth.signIn({ email, password });
-  console.log(obj);
+  const { user, error } = await supabase.auth.signIn({ email, password });
   if (error) throw error;
   return user;
 }
