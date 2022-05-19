@@ -8,6 +8,8 @@ export default function Auth() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    console.log(email);
+    console.log(password);
     await signIn(email, password);
   };
 
@@ -34,7 +36,9 @@ export default function Auth() {
         onChange={(e) => setPassword(e.target.value)}
       />
       <button type="submit">Sign In</button>
-      <button type="button">Sign Up</button>
+      <button type="button" onClick={handleClick}>
+        Sign Up
+      </button>
     </form>
   );
 }
