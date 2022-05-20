@@ -5,9 +5,16 @@ export default function CoffeeList({ coffees }) {
 
   return (
     <>
-      {coffees.map((coffee) => (
-        <Coffee key={coffee.id} />
-      ))}
+      <ul>
+        <li>
+          <span>Date Added</span>
+          <span>Roastery</span>
+          <span>Name</span>
+        </li>
+        {coffees.map((coffee) => (
+          <Coffee key={coffee.id} coffee={coffee} />
+        ))}
+      </ul>
     </>
   );
 }
