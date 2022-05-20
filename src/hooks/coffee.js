@@ -1,12 +1,12 @@
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { CoffeeContext } from '../context/CoffeeContext';
-import { getCoffees } from '../services/coffees';
+import { getCoffees, getCoffeeById } from '../services/coffees';
 
-export function useCoffee() {
+export function useCoffees() {
   const context = useContext(CoffeeContext);
 
   if (context === undefined) {
-    throw new Error('useCoffee must be used within a CoffeeContext.Provider');
+    throw new Error('useCoffees must be used within a CoffeeContext.Provider');
   }
 
   const { coffees, dispatch } = context;
@@ -21,4 +21,18 @@ export function useCoffee() {
   }, []);
 
   return { coffees };
+}
+
+export function useCoffee(id) {
+  const [coffee, setCoffee] = useState({});
+
+  useEffect(() => {
+    const loadCoffee = async () => {
+      const response = await getCoffeeById(id);
+      setCoffee(response);
+    };
+    loadCoffee();
+  }, []);
+
+  return { coffee };
 }

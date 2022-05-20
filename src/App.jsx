@@ -3,6 +3,7 @@ import Auth from './views/Auth/Auth';
 import { UserProvider } from './context/UserContext';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import ViewCoffees from './views/Coffee/ViewCoffees';
+import ViewCoffeeDetail from './views/Coffee/ViewCoffeeDetail';
 import { CoffeeProvider } from './context/CoffeeContext';
 
 export default function App() {
@@ -17,7 +18,7 @@ export default function App() {
             <p>ViewAddForm here</p>
           </Route>
           <Route path="/coffee/:id">
-            <p>/coffee detail</p>
+            <ViewCoffeeDetail />
           </Route>
           <Route path="/login">
             <Auth />
