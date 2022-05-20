@@ -13,6 +13,9 @@ export default function App() {
           <PrivateRoute path="/list">
             <ViewCoffees />
           </PrivateRoute>
+          <Route path="/coffee/add">
+            <p>Add a coffee form here</p>
+          </Route>
           <Route path="/coffee/:id">
             <p>/coffee detail</p>
           </Route>
