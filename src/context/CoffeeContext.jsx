@@ -6,6 +6,8 @@ function reducer(coffees, { type, payload }) {
   switch (type) {
     case 'RESET':
       return payload;
+    case 'ADD':
+      return [...coffees, payload];
     default:
       throw Error(`${type} is not a valid action`);
   }

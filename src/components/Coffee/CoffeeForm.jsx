@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import { useCoffees } from '../../hooks/coffee';
 
 export default function CoffeeForm() {
+  const { handleAddCoffee } = useCoffees();
   const [roasteryValue, setRoasteryValue] = useState('');
   const [nameValue, setNameValue] = useState('');
   const [roastLevelValue, setRoastLevelValue] = useState('');
@@ -9,12 +11,20 @@ export default function CoffeeForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    handleAddCoffee({
+      roastery: roasteryValue,
+      name: nameValue,
+      roast: roastLevelValue,
+      process: processValue,
+      description: descriptionValue,
+    });
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="roastery">Roastery</label>
       <input
+        required
         name="roastery"
         type="text"
         value={roasteryValue}
@@ -22,6 +32,7 @@ export default function CoffeeForm() {
       />
       <label htmlFor="coffeename">Coffee Name</label>
       <input
+        required
         name="coffeename"
         type="text"
         value={nameValue}
@@ -29,6 +40,7 @@ export default function CoffeeForm() {
       />
       <label htmlFor="roastlevel">Roast Level</label>
       <input
+        required
         name="roastlevel"
         type="text"
         value={roastLevelValue}
@@ -36,6 +48,7 @@ export default function CoffeeForm() {
       />
       <label htmlFor="process">Process</label>
       <input
+        required
         name="process"
         type="text"
         value={processValue}
@@ -43,12 +56,13 @@ export default function CoffeeForm() {
       />
       <label htmlFor="description">Description</label>
       <input
+        required
         name="description"
         type="text"
         value={descriptionValue}
         onChange={(e) => setDescriptionValue(e.target.value)}
       />
-      <button type="submit">Save</button>
+      <button type="submit">Submit</button>
     </form>
   );
 }

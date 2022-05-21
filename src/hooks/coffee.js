@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { CoffeeContext } from '../context/CoffeeContext';
-import { getCoffees, getCoffeeById } from '../services/coffees';
+import { getCoffees, getCoffeeById, createCoffee } from '../services/coffees';
 
 export function useCoffees() {
   const context = useContext(CoffeeContext);
@@ -20,7 +20,12 @@ export function useCoffees() {
     loadCoffees();
   }, []);
 
-  return { coffees };
+  async function handleAddCoffee(coffee) {
+    const payload = await createCoffee(coffee);
+    dispatch({ type: 'ADD', payload });
+  }
+
+  return { coffees, handleAddCoffee };
 }
 
 export function useCoffee(id) {
