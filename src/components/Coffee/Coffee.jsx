@@ -4,7 +4,6 @@ import { useAuth } from '../../hooks/auth';
 
 export default function Coffee({ coffee }) {
   const { user } = useAuth();
-  console.log(user);
   const date = new Date(coffee.created_at);
 
   if (!user) return null;

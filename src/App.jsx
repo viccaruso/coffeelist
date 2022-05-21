@@ -3,6 +3,7 @@ import Auth from './views/Auth/Auth';
 import { UserProvider } from './context/UserContext';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import ViewCoffees from './views/Coffee/ViewCoffees';
+import ViewAddCoffee from './views/Coffee/ViewAddCoffee';
 import ViewCoffeeDetail from './views/Coffee/ViewCoffeeDetail';
 import { CoffeeProvider } from './context/CoffeeContext';
 
@@ -15,7 +16,7 @@ export default function App() {
             <ViewCoffees />
           </PrivateRoute>
           <Route path="/coffee/add">
-            <p>ViewAddForm here</p>
+            <ViewAddCoffee />
           </Route>
           <Route path="/coffee/:id">
             <ViewCoffeeDetail />

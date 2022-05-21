@@ -5,8 +5,6 @@ export default function ViewCoffeeDetail() {
   const { id } = useParams();
   const { coffee } = useCoffee(id);
 
-  console.log(coffee);
-
   return (
     <div>
       <p>{coffee.roastery && `Roastery: ${coffee.roastery}`}</p>
