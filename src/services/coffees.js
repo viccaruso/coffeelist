@@ -14,3 +14,9 @@ export async function getCoffeeById(id) {
     .single();
   return parseData(response);
 }
+
+export async function createCoffee(coffee) {
+  const response = await supabase.from('coffee').insert(coffee).single();
+
+  return parseData(response);
+}
