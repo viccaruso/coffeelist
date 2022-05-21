@@ -1,20 +1,23 @@
 import Coffee from './Coffee';
-
+import styles from './CoffeeTable.css';
 export default function CoffeeList({ coffees }) {
   if (!coffees) return null;
 
   return (
-    <>
-      <ul>
-        <li>
-          <span>Date Added</span>
-          <span>Roastery</span>
-          <span>Name</span>
-        </li>
+    <table style={styles}>
+      <thead>
+        <tr>
+          <th>Date Added</th>
+          <th>Roastery</th>
+          <th>Coffee Name</th>
+          <th>Added By</th>
+        </tr>
+      </thead>
+      <tbody>
         {coffees.map((coffee) => (
           <Coffee key={coffee.id} coffee={coffee} />
         ))}
-      </ul>
-    </>
+      </tbody>
+    </table>
   );
 }

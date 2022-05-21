@@ -4,7 +4,6 @@ import CoffeeList from '../../components/Coffee/CoffeeList';
 
 export default function ViewCoffees() {
   const { coffees } = useCoffees();
-
   return (
     <div>
       <h1>Welcome to the coffee list!</h1>
